@@ -11,6 +11,7 @@ namespace ahmed.Controllers
     {
         private string club;
 
+        //Change Property Name to players
         private static List<FootballPlayer> player = new List<FootballPlayer>()
             {
                 new FootballPlayer{id=1,name="messi",Fname="leonel",Lname="messi",Club="FCB"},
@@ -30,19 +31,20 @@ namespace ahmed.Controllers
         [HttpGet("id")]
         public IActionResult Get(int id)
         {
-
+            //Change Property Name from playerr to player
             var playerr = player.Find(p => p.id == id);
             if (playerr == null)
                 return BadRequest("player not found");
-
+            
+            //Return the selected property not the list
             return Ok(player);
         }
 
 
         [HttpPost]
         public IActionResult Addplayer(FootballPlayer playerr)
-
         {
+        //Change Property Name from playerr to player
             player.Add(playerr);
 
             return Ok(player);
@@ -51,6 +53,7 @@ namespace ahmed.Controllers
         public IActionResult updateplayer(FootballPlayer request)
 
         {
+            //Change Property Name from playerr to player
             var playerr = player.Find(p => p.id == request.id);
             if (playerr == null)
                 return BadRequest("player not found");
@@ -66,7 +69,7 @@ namespace ahmed.Controllers
         [HttpDelete("id")]
         public IActionResult Delete (int id)
         {
-
+            //Change Property Name from playerr to player
             var playerr = player.Find(p => p.id == id);
             if (playerr == null)
                 return BadRequest("player not found");
